@@ -6,7 +6,7 @@ namespace DiscordGoose
 {
 	public class ModEntryPoint : IMod
 	{
-		private static bool delay = true;
+		private static int delay = 120;
 
 		void IMod.Init()
 		{
@@ -17,13 +17,13 @@ namespace DiscordGoose
 
 		public void PreTick(GooseEntity g)
 		{
-			if (delay)
+			if (delay == 0)
 			{
 				this.GoosePresence.Update(g);
-				delay = false;
+				delay = 120;
 				return;
 			}
-			delay = true;
+			delay--;
 		}
 
 		public void OnProcessExit(object sender, EventArgs e)
