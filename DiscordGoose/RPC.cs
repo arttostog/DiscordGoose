@@ -87,17 +87,19 @@ namespace DiscordGoose
 				Details = this.currentTask,
 				State = this.speedTier,
 				Timestamps = this.Now,
-				Party = new Party
-				{
-					Size = 2,
-					Max = 2
-				},
+
 				Assets = new Assets
 				{
 					LargeImageKey = "icon",
-					LargeImageText = null,
+					LargeImageText = "Гусь",
 					SmallImageKey = null
-				}
+				},
+				Party = new Party
+				{
+					ID = "goose",
+					Size = playersCount,
+					Max = int.MaxValue
+				},
 			});
 		}
 
@@ -122,6 +124,8 @@ namespace DiscordGoose
 		public static RPC.Taskz t = new RPC.Taskz();
 
 		private Random rand = new Random();
+
+		private static int playersCount = 1;
 
 		private string[] Custom = new string[]
 		{
