@@ -72,7 +72,7 @@ namespace DiscordGoose
 				this.speedTier = ((this.Goose.currentSpeed == walkSpeed) ? (this.getRand(this.Walk) + " (Walking)") : ((this.Goose.currentSpeed == runSpeed) ? (this.getRand(this.Run) + " (Running)") : ((this.Goose.currentSpeed == chargeSpeed) ? (this.getRand(this.Charge) + " (Charging)") : string.Format("{0} (Speed: {1})", this.getRand(this.Custom), this.Goose.currentSpeed))));
 				foreach (FieldInfo fieldInfo in typeof(RPC.Taskz).GetFields())
 				{
-					if (fieldInfo.Name.Replace("ing", "").Replace("bb", "b").Replace("mes", "me").Replace("pads", "pad") == this.tasks[this.Goose.currentTask] || fieldInfo.Name == this.tasks[this.Goose.currentTask])
+					if (fieldInfo.Name == this.tasks[this.Goose.currentTask] || fieldInfo.Name == this.tasks[this.Goose.currentTask])
 					{
 						this.currentTask = this.getRand((string[])fieldInfo.GetValue(RPC.t)) + " (" + fieldInfo.Name + ")";
 						break;
@@ -97,7 +97,7 @@ namespace DiscordGoose
 				Party = new Party
 				{
 					ID = "goose",
-					Size = playersCount,
+					Size = 1,
 					Max = int.MaxValue
 				},
 			});
@@ -124,8 +124,6 @@ namespace DiscordGoose
 		public static RPC.Taskz t = new RPC.Taskz();
 
 		private Random rand = new Random();
-
-		private static int playersCount = 1;
 
 		private string[] Custom = new string[]
 		{
@@ -161,7 +159,7 @@ namespace DiscordGoose
 
 		public class Taskz
 		{
-			public string[] Wandering = new string[]
+			public string[] Wander = new string[]
 			{
 				"Обдумываю жизненный выбор.",
 				"Размышляю о мемах.",
@@ -170,7 +168,7 @@ namespace DiscordGoose
 				"Что-то ищу..."
 			};
 
-			public string[] NabbingMouse = new string[]
+			public string[] NabMouse = new string[]
 			{
 				"Кусаю мышь.",
 				"Хрум-хрум.",
@@ -178,7 +176,7 @@ namespace DiscordGoose
 				"Гоняюсь за мышью."
 			};
 
-			public string[] CollectingMemes = new string[]
+			public string[] CollectMeme = new string[]
 			{
 				"Перетаскиваю мемы.",
 				"Отправляю мемы.",
@@ -186,7 +184,7 @@ namespace DiscordGoose
 				"Мм, да. Гоготание сделанно из гудка."
 			};
 
-			public string[] CollectingNotepads = new string[]
+			public string[] CollectNotepad = new string[]
 			{
 				"Перетаскиваю заметку.",
 				"Становлюсь удивительным поэтом.",
@@ -196,7 +194,7 @@ namespace DiscordGoose
 				"Печатаю с закрытыми глазами."
 			};
 
-			public string[] TrackingMud = new string[]
+			public string[] TrackMud = new string[]
 			{
 				"Делаю экран грязнее.",
 				"Я это почищу, наверное.",
@@ -255,6 +253,13 @@ namespace DiscordGoose
 				"Играю с мячиком.",
 				"Пытаюсь укусить красный шар.",
 				"Пытаюсь стать великим футболистом."
+			};
+
+			public string[] AttackingTheMonster = new string[]
+			{
+				"Бью плохих парней.",
+				"Охота на хлебо-монстров!",
+				"Качаю свой лвл."
 			};
 		}
 	}
