@@ -6,31 +6,31 @@ namespace DiscordGoose
 {
 	public class ModEntryPoint : IMod
 	{
+		private static RPC GoosePresence = new RPC("1113388907606855740");
+
 		private static int delay = 120;
 
 		void IMod.Init()
 		{
-			InjectionPoints.PreTickEvent += new InjectionPoints.PreTickEventHandler(this.PreTick);
-			this.GoosePresence.Init();
-			Process.GetCurrentProcess().Exited += this.OnProcessExit;
+			InjectionPoints.PreTickEvent += new InjectionPoints.PreTickEventHandler(PreTick);
+			GoosePresence.Init();
+			Process.GetCurrentProcess().Exited += OnProcessExit;
 		}
 
-		public void PreTick(GooseEntity g)
+		public static void PreTick(GooseEntity g)
 		{
 			if (delay == 0)
 			{
-				this.GoosePresence.Update(g);
+				GoosePresence.Update(g);
 				delay = 120;
 				return;
 			}
 			delay--;
 		}
 
-		public void OnProcessExit(object sender, EventArgs e)
+		public static void OnProcessExit(object sender, EventArgs e)
 		{
-			this.GoosePresence.Disconnect();
+			GoosePresence.Disconnect();
 		}
-
-		private RPC GoosePresence = new RPC("1113388907606855740");
 	}
 }
