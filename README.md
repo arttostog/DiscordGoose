@@ -4,7 +4,7 @@
 
 # DiscordGoose это модификация для [Samperson's Desktop Goose](https://samperson.itch.io/desktop-goose)
 
-**Информация**
+### Информация
 
 </div>
 
@@ -13,7 +13,7 @@
 
 <div align="center">
 
-**Установка**
+### Установка
 
 </div>
 
@@ -23,7 +23,7 @@
 
 <div align="center">
 
-**Скриншоты**
+### Скриншоты
 
 <img src="/images/img.png">
 
