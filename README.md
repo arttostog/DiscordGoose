@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="/Images/icon.png" width="128" height="128">
+<img src="/images/icon.png" width="128" height="128">
 
 # DiscordGoose это модификация для [Samperson's Desktop Goose](https://samperson.itch.io/desktop-goose)
 
@@ -21,6 +21,6 @@
 
 **Скриншоты**
 
-<img src="/Images/img.png">
+<img src="/images/img.png">
 
 </div>
